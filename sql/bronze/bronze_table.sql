@@ -60,5 +60,6 @@ CREATE TABLE BRONZE.erp_px_cat_g1v2
     CAT TEXT,
     SUBCAT TEXT,
     MAINTENANCE TEXT,
-    ingestion_time TIMESTAMP DEFAULT
+    ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
