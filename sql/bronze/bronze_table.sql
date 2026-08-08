@@ -1,6 +1,12 @@
---Bronze layer: Stores raw source data without transformation.
---Source columns are stored as TEXT to prevent load failures.
+/*
+========================================================================================
+Procedure : Create Bronze Tables
+Purpose   : Creating tables in the Bronze Layer,droping existing tables if they
+            already exists.
+========================================================================================
+*/
 
+DROP TABLE IF EXISTS BRONZE.crm_cust_info;
 CREATE TABLE BRONZE.crm_cust_info
 (
     cst_id TEXT,
@@ -13,6 +19,7 @@ CREATE TABLE BRONZE.crm_cust_info
     ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS BRONZE.crm_prd_info;
 CREATE TABLE BRONZE.crm_prd_info
 (
     prd_id TEXT,
@@ -25,6 +32,7 @@ CREATE TABLE BRONZE.crm_prd_info
     ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS BRONZE.crm_sales_details;
 CREATE TABLE BRONZE.crm_sales_details
 (
     sls_ord_num TEXT,
@@ -39,6 +47,7 @@ CREATE TABLE BRONZE.crm_sales_details
     ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS BRONZE.erp_cust_az12;
 CREATE TABLE BRONZE.erp_cust_az12
 (
     CID TEXT,
@@ -47,6 +56,7 @@ CREATE TABLE BRONZE.erp_cust_az12
     ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS BRONZE.erp_loc_a101;
 CREATE TABLE BRONZE.erp_loc_a101
 (
     CID TEXT,
@@ -54,6 +64,7 @@ CREATE TABLE BRONZE.erp_loc_a101
     ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS BRONZE.erp_px_cat_g1v2;
 CREATE TABLE BRONZE.erp_px_cat_g1v2
 (
     ID TEXT,
@@ -62,4 +73,3 @@ CREATE TABLE BRONZE.erp_px_cat_g1v2
     MAINTENANCE TEXT,
     ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
