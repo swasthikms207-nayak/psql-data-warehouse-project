@@ -23,6 +23,7 @@ RAISE NOTICE 'Start Time: %',start_time;
 RAISE NOTICE
 '======================================================================================';
 RAISE NOTICE 'Loading crm_cust_info...';
+
 TRUNCATE TABLE BRONZE.crm_cust_info;
 COPY BRONZE.crm_cust_info
 (

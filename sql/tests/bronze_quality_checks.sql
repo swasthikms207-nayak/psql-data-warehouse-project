@@ -1,4 +1,9 @@
---======================================================================================
+/*
+========================================================================================
+Procedure : Create Bronze Quality Checks
+Purpose   : 
+========================================================================================
+*/
 --crm_cust_info
 SELECT *
 FROM BRONZE.crm_cust_info
@@ -60,7 +65,7 @@ SELECT cst_create_date
 FROM BRONZE.crm_cust_info
 WHERE cst_create_date :: DATE > CURRENT_DATE;
 
-SELECT cst_create_date
+SELECT cst_create_date,*
 FROM BRONZE.crm_cust_info
 WHERE cst_create_date IS NULL;
 
@@ -97,26 +102,30 @@ WHERE prd_id :: INTEGER < 1;
 SELECT SUBSTRING(REPLACE(prd_key,'-','_'),1,5)
 FROM BRONZE.crm_prd_info;
 
-SELECT SUBSTRING(REPLACE(prd_key,'-','_'),1,5)
-FROM BRONZE.crm_prd_info;
-
 SELECT prd_key
 FROM BRONZE.crm_prd_info
 WHERE prd_key IS NULL;
 
 --check for invalid and null prd_nm
+SELECT DISTINCT prd_nm
+FROM BRONZE.crm_prd_info;
+
 SELECT prd_nm
 FROM BRONZE.crm_prd_info
 WHERE prd_nm IS NULL;
 
 --check for invalid prd_cost
-SELECT prd_cost
+SELECT *
 FROM BRONZE.crm_prd_info
-WHERE prd_cost IS NULL AND prd_cost :: INTEGER <1;
+WHERE prd_cost IS NULL OR prd_cost :: INTEGER <1;
 
 --check for invalid prd_line
-SELECT DISTINCT prd_line
+SELECT DISTINCT prd_nm,prd_line
 FROM BRONZE.crm_prd_info;
+
+SELECT prd_line
+FROM BRONZE.crm_prd_info
+WHERE prd_nm IS NULL;
 
 --check invalid date
 SELECT prd_start_dt
@@ -149,43 +158,86 @@ SELECT sls_ord_num
 FROM BRONZE.crm_sales_details
 WHERE sls_ord_num IS NULL;
 
+SELECT COUNT(sls_ord_num)
+FROM BRONZE.crm_sales_details
+GROUP BY sls_ord_num
+HAVING COUNT(sls_ord_num)>1;
+
 --check null sls_prd_key
 SELECT sls_prd_key
 FROM BRONZE.crm_sales_details
 WHERE sls_prd_key IS NULL;
 
+SELECT COUNT(sls_prd_key)
+FROM BRONZE.crm_sales_details
+GROUP BY sls_prd_key
+HAVING COUNT(sls_prd_key)>1;
+
 --check null sls_cust_id
 SELECT sls_cust_id
 FROM BRONZE.crm_sales_details
 WHERE sls_cust_id IS NULL;
+
+SELECT COUNT(sls_cust_id),sls_cust_id
+FROM BRONZE.crm_sales_details
+GROUP BY sls_cust_id
+HAVING COUNT(sls_cust_id)>1;
  
 --check for invalid date
 SELECT sls_order_dt
 FROM BRONZE.crm_sales_details
 WHERE sls_order_dt IS NULL;
 
+SELECT sls_order_dt
+FROM BRONZE.crm_sales_details
+WHERE sls_order_dt::INTEGER=0;
+
 SELECT sls_ship_dt
 FROM BRONZE.crm_sales_details
 WHERE sls_ship_dt IS NULL;
 
+SELECT sls_ship_dt
+FROM BRONZE.crm_sales_details
+WHERE sls_ship_dt::INTEGER=0;
+
 SELECT sls_due_dt
 FROM BRONZE.crm_sales_details
 WHERE  sls_due_dt IS NULL;
+
+SELECT sls_due_dt
+FROM BRONZE.crm_sales_details
+WHERE  sls_due_dt::INTEGER=0;
 
 --check for invalid number of sales
 SELECT sls_sales,*
 FROM BRONZE.crm_sales_details
 WHERE  sls_sales :: INTEGER < 1;
 
+SELECT sls_sales,sls_quantity,sls_price
+FROM BRONZE.crm_sales_details
+WHERE  sls_sales IS NULL;
+
+SELECT sls_sales,sls_quantity,sls_price
+FROM BRONZE.crm_sales_details
+WHERE  sls_sales::INTEGER != sls_quantity::INTEGER*sls_price::INTEGER;
+
 --check for invalid number of quantity
 SELECT sls_quantity
 FROM BRONZE.crm_sales_details
 WHERE  sls_quantity :: INTEGER < 1;
 
+SELECT sls_quantity
+FROM BRONZE.crm_sales_details
+WHERE  sls_quantity IS NULL;
+
 --check for invalid price
 SELECT sls_price
 FROM BRONZE.crm_sales_details
 WHERE  sls_price :: INTEGER < 1;
+
+SELECT sls_sales,sls_quantity,sls_price
+FROM BRONZE.crm_sales_details
+WHERE  sls_price IS NULL;
 
 --=============================================================================
 --erp_cust_az12
@@ -237,12 +289,22 @@ SELECT ID
 FROM BRONZE.erp_px_cat_g1v2
 WHERE ID IS NULL;
 
+--check for duplicate Id's
+SELECT COUNT(ID),ID
+FROM BRONZE.erp_px_cat_g1v2
+GROUP BY ID
+HAVING COUNT(ID)>1;
+
+
 --ckeck distinct categories
 SELECT DISTINCT CAT
 FROM BRONZE.erp_px_cat_g1v2;
 
 --ckeck distinct subcategories
-SELECT DISTINCT CAT,SUBCAT
+SELECT DISTINCT CAT
+FROM BRONZE.erp_px_cat_g1v2;
+
+SELECT DISTINCT SUBCAT
 FROM BRONZE.erp_px_cat_g1v2;
 
 --ckeck for valid maintenance
