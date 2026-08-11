@@ -121,7 +121,7 @@ THEN sls_quantity::INTEGER*ABS(sls_price::NUMERIC)
 ELSE sls_sales::NUMERIC
 END AS sls_sales,
 sls_quantity::INTEGER,
-CASE WHEN sls_price::NUMERIC<=0 OR sls_price IS NULL OR sls_price::NUMERIC!=ABS(sls_sales::NUMERIC)/sls_quantity::INTEGER
+CASE WHEN sls_price::NUMERIC<=0 OR sls_price IS NULL
 THEN ABS(sls_sales::NUMERIC)/NULLIF(sls_quantity::INTEGER,0)
 ELSE sls_price::NUMERIC
 END AS sls_price

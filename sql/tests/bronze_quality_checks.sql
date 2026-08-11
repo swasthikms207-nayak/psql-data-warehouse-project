@@ -1,6 +1,6 @@
 /*
 ========================================================================================
-Procedure : Create Bronze Quality Checks
+Procedure : Bronze Quality Checks
 Purpose   : 
 ========================================================================================
 */
@@ -34,6 +34,12 @@ SELECT cst_id
 FROM BRONZE.crm_cust_info
 WHERE cst_id !~ '^[0-9]+$';
 
+--check duplicate key's
+SELECT cst_key,COUNT(*)
+FROM BRONZE.crm_cust_info
+GROUP BY cst_key
+HAVING COUNT(*)>1;
+
 SELECT cst_id
 FROM BRONZE.crm_cust_info
 WHERE cst_id :: INTEGER < 1;
@@ -52,15 +58,15 @@ SELECT cst_lastname
 FROM BRONZE.crm_cust_info
 WHERE cst_lastname IS NULL;
 
---check invalid marital status
+--check marital status
 SELECT DISTINCT cst_marital_status
 FROM BRONZE.crm_cust_info;
 
---check invalid gender
+--check gender
 SELECT DISTINCT cst_gndr
 FROM BRONZE.crm_cust_info;
 
---check invalid date
+--check for invalid date
 SELECT cst_create_date
 FROM BRONZE.crm_cust_info
 WHERE cst_create_date :: DATE > CURRENT_DATE;
@@ -69,7 +75,7 @@ SELECT cst_create_date,*
 FROM BRONZE.crm_cust_info
 WHERE cst_create_date IS NULL;
 
---===========================================================
+--=====================================================================================
 --crm_prd_info
 SELECT *
 FROM BRONZE.crm_prd_info
@@ -127,7 +133,7 @@ SELECT prd_line
 FROM BRONZE.crm_prd_info
 WHERE prd_nm IS NULL;
 
---check invalid date
+--check for invalid date
 SELECT prd_start_dt
 FROM BRONZE.crm_prd_info
 WHERE prd_start_dt :: DATE > CURRENT_DATE;
@@ -301,9 +307,6 @@ SELECT DISTINCT CAT
 FROM BRONZE.erp_px_cat_g1v2;
 
 --ckeck distinct subcategories
-SELECT DISTINCT CAT
-FROM BRONZE.erp_px_cat_g1v2;
-
 SELECT DISTINCT SUBCAT
 FROM BRONZE.erp_px_cat_g1v2;
 
