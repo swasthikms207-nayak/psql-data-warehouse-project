@@ -1,9 +1,14 @@
 /*
 ========================================================================================
-Procedure : Silver Quality Checks
-Purpose   : 
+Procedure : Validate Silver Layer
+
+Purpose   : Perform data quality checks on the transformed and cleansed Silver-layer
+            data to ensure data accuracy, consistency, completeness, and integrity
+            before loading it into the Gold layer.
+
 ========================================================================================
 */
+
 --crm_cust_info
 SELECT COUNT(*)
 FROM SILVER.crm_cust_info;

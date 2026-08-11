@@ -1,8 +1,11 @@
 /*
 ========================================================================================
-Procedure : Load Bronze Layer
-Purpose   : Loading raw CRM and ERP csv data into the bronze layer without transforming
-            to preserve the source data.
+Procedure : Load Silver Layer
+
+Purpose   : Load transformed and cleansed data from the Bronze layer into the
+            Silver layer by applying data cleaning, standardization, and
+            transformation rules.
+
 ========================================================================================
 */
 

@@ -1,8 +1,8 @@
 /*
 ========================================================================================
 Procedure : Create Silver Tables
-Purpose   : Creating tables in the Silver Layer,droping existing tables if they
-            already exists.
+Purpose   : Create tables in the Silver layer, dropping existing tables if they
+            already exist.
 ========================================================================================
 */
 
@@ -74,3 +74,4 @@ CREATE TABLE SILVER.erp_px_cat_g1v2
     MAINTENANCE VARCHAR(50),
     ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+

@@ -1,8 +1,8 @@
 /*
 ========================================================================================
 Procedure : Create Bronze Tables
-Purpose   : Creating tables in the Bronze Layer,droping existing tables if they
-            already exists.
+Purpose   : Create tables in the Bronze layer, dropping existing tables if they
+            already exist.
 ========================================================================================
 */
 

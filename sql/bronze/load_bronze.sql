@@ -1,11 +1,13 @@
 /*
 ========================================================================================
+
 Procedure : Load Bronze Layer
-Purpose   : Loading raw CRM and ERP csv data into the bronze layer without transforming
+
+Purpose   : Load raw CRM and ERP CSV data into the Bronze layer without transformation
             to preserve the source data.
+
 ========================================================================================
 */
-
 
 CREATE OR REPLACE PROCEDURE BRONZE.load_bronze()
 LANGUAGE plpgsql

@@ -1,9 +1,14 @@
 /*
 ========================================================================================
-Procedure : Bronze Quality Checks
-Purpose   : 
+Procedure : Validate Bronze Layer
+
+Purpose   : Perform data quality checks on the raw Bronze-layer data to identify
+            issues such as NULL values, duplicates, invalid formats, and
+            inconsistent data before loading it into the Silver layer.
+
 ========================================================================================
 */
+
 --crm_cust_info
 SELECT *
 FROM BRONZE.crm_cust_info
