@@ -11,7 +11,7 @@ The project covers data ingestion, data quality, SQL transformations, CRM/ERP in
 
 <img src="docs/data_architecture.png" alt="Data Warehouse Architecture" width="700">
 
-## Data Flow:
+## Data Flow
 
 <img src="docs/data_flow.png" alt="Data Warehouse Data Flow" width="700">
 
