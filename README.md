@@ -97,6 +97,12 @@ postgres-data-warehouse/
 ├── LICENSE
 └── README.md
 ```
+---
+
+## 📊 Dataset
+
+This project uses sample CRM and ERP datasets containing customer,
+product, and sales information.
 
 ---
 
@@ -111,13 +117,6 @@ postgres-data-warehouse/
 * Implemented dimension surrogate keys.
 * Created business-ready Gold-layer views.
 * Worked with PostgreSQL SQL features and data types.
-
----
-
-## 📊 Dataset
-
-This project uses sample data based on the AdventureWorks dataset,
-provided by Microsoft, covering sales, customers, and product information.
 
 ---
 
