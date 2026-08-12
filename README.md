@@ -83,23 +83,16 @@ Examples include:
 ```text
 postgres-data-warehouse/
 │
-├── sql/
-│   ├── 01_create_schema.sql
-│   ├── 02_create_bronze_tables.sql
-│   ├── 03_load_bronze.sql
-│   ├── 04_bronze_quality_checks.sql
-│   ├── 05_create_silver_tables.sql
-│   ├── 06_load_silver.sql
-│   ├── 07_silver_quality_checks.sql
-│   └── 08_create_gold_views.sql
-│
 ├── data/
 ├── docs/
-│   ├── data_architecture.png
-│   ├── data_integration.png
-│   ├── data_flow.png
-│   └── star_schema.png
-│
+├── scripts/
+├── sql/
+│   ├── bronze/ 
+│   ├── gold/
+│   ├── quality_checks/
+│   ├── schema/
+|   ├── silver/
+├── LICENSE
 └── README.md
 ```
 
