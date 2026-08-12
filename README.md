@@ -10,10 +10,10 @@ The project covers data ingestion, data quality, SQL transformations, CRM/ERP in
 
 ## 🏗️ Data Architecture
 
-![Data Architecture](docs/data_architecture.png)
+<img src="docs/data_architecture.png" alt="Data Warehouse Architecture" width="700">
 
 **Data Flow:**
-![Data Architecture](docs/data_flow.png)
+<img src="docs/data_flow.png" alt="Data Warehouse Data Flow" width="700">
 
 * **Bronze:** Raw CRM and ERP data loaded with minimal transformation.
 * **Silver:** Cleansing, standardization, integration, transformation, and data-quality validation.
@@ -23,7 +23,7 @@ The project covers data ingestion, data quality, SQL transformations, CRM/ERP in
 
 ## ⭐ Star Schema
 
-![Data Architecture](docs/data_model.png)
+<img src="docs/star_schema.png" alt="Star Schema" width="700">
 
 The Gold layer contains:
 
