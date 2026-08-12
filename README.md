@@ -111,3 +111,18 @@ postgres-data-warehouse/
 * Implemented dimension surrogate keys.
 * Created business-ready Gold-layer views.
 * Worked with PostgreSQL SQL features and data types.
+
+---
+
+## 📊 Dataset
+
+This project uses sample data based on the AdventureWorks dataset,
+provided by Microsoft, covering sales, customers, and product information.
+
+---
+
+## 📚 Reference
+
+This project was inspired by a SQL tutorial by Baraa Khatib Salkini.
+The original tutorial was implemented using SQL Server, while this project
+was independently rebuilt using PostgreSQL.
