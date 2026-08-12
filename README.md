@@ -89,11 +89,11 @@ postgres-data-warehouse/
 ├── docs/
 ├── scripts/
 ├── sql/
-│   ├── bronze/ 
-│   ├── gold/
-│   ├── quality_checks/
-│   ├── schema/
-|   ├── silver/
+│   ├── 01_schema/ 
+│   ├── 02_bronze/
+│   ├── 03_silver/
+│   ├── 04_gold/
+|   ├── 05_quality_checks/
 ├── LICENSE
 └── README.md
 ```
