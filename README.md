@@ -7,12 +7,12 @@ A **PostgreSQL Data Warehouse** built using **Medallion Architecture (Bronze →
 The project covers data ingestion, data quality, SQL transformations, CRM/ERP integration, dimensional modeling, surrogate keys, and business-ready Gold-layer views.
 
 ---
-
 ## 🏗️ Data Architecture
 
 <img src="docs/data_architecture.png" alt="Data Warehouse Architecture" width="700">
 
-**Data Flow:**
+## Data Flow:
+
 <img src="docs/data_flow.png" alt="Data Warehouse Data Flow" width="700">
 
 * **Bronze:** Raw CRM and ERP data loaded with minimal transformation.
