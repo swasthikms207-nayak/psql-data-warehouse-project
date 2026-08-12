@@ -120,7 +120,8 @@ product, and sales information.
 
 ---
 
-License: MIT License for the original code and documentation created for this project. Third-party datasets and materials, if any, remain subject to their respective terms.
+## License: 
+MIT License for the original code and documentation created for this project. Third-party datasets and materials, if any, remain subject to their respective terms.
 
 ---
 
